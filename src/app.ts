@@ -26,7 +26,7 @@ app.use(
   session({
     secret: String(process.env.SESSION_SECRET),
     cookie: {
-      maxAge: 1000 * 3600 * 3, // 3 hours
+      maxAge: 1000 * 3600 * 6, // 6 hours
     },
     store: store, // collection ichidagi nomi; collectionni nomi => "sessions"
     resave: true, // "true" bo'lsa oxirgi kirgan vaqtdan boshlab 3 soat amal qiladi, "false" bo'lsa birinchi kirgan vaqtdan boshlab 3 soat amal qiladi.
