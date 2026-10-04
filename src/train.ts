@@ -16,6 +16,8 @@
 
 // Design pattern: Middleware, Decotar
 
+/** ********************************************** */
+
 /* 
 TASK L
 
@@ -33,6 +35,8 @@ function taskL(str) {
 }
 
 console.log(taskL("Men bugundan Burak loyihasini boshladim")); */
+
+/** ********************************************** */
 
 /* 
 TASK M
@@ -54,6 +58,8 @@ function taskM(arr) {
 
 console.log(taskM([2, 5, 6, 8, 9]));  */
 
+/** ********************************************** */
+
 /* 
 TASK N
 
@@ -68,6 +74,8 @@ function taskN_palind(task: string) {
 
 console.log(taskN_palind("dad")); // true
 console.log(taskN_palind("hello")); // false  */
+
+/** ********************************************** */
 
 /*
 TASK O
@@ -87,6 +95,8 @@ function taskO(arr: any) {
 }
 
 console.log(taskO([2, true, "salom", 5, { salom: "Steve" }, 70, 52, 1])); */
+
+/** ********************************************** */
 
 /* 
 TASK P
@@ -108,6 +118,8 @@ console.log(
   taskP({ name: "Steve", age: 27, nation: "UZB", hooby: "Computer sciense" }),
 ); */
 
+/** ********************************************** */
+
 /*
 TASK Q
 
@@ -115,10 +127,27 @@ Objectda berilgan string propertysi borligini tekshirsin.
 
 Masalan: hasProperty({name: "BMW"}, "name") return true */
 
+/*
 function taskQ(obj: object, property: string): boolean {
   return property in obj; // -->  in => method orqali objectni ichidagi propertyni tekshirib beradi. ( return "name" obj) shu formulaga tushadi.
 }
 
 console.log(taskQ({ name: "Steve", age: 27 }, "name"));
 console.log(taskQ({ name: "Steve", job: "develop" }, "age"));
-console.log(taskQ({ name: "Steve", age: 27, job: "develop" }, "job"));
+console.log(taskQ({ name: "Steve", age: 27, job: "develop" }, "job"));   */
+
+/** ********************************************** */
+
+/*
+TASK R
+
+"1 + 2" ko'rinishidagi stringni hisoblab number qaytarsin.
+
+Masalan: calculate("1 + 3") return 4. */
+
+function taskR(): Number {
+  let a = "1";
+  let b = "2";
+  return Number(a) + Number(b);
+}
+console.log(taskR());

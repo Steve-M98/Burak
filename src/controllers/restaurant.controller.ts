@@ -87,6 +87,18 @@ restaurantController.processLogin = async (
   }
 };
 
+restaurantController.logout = async (req: AdminRequest, res: Response) => {
+  try {
+    console.log("logout");
+    req.session.destroy(function () {
+      res.redirect("/admin");
+    });
+  } catch (err) {
+    console.log("Error, logout", err);
+    res.redirect("/admin");
+  }
+};
+
 restaurantController.checkAuthSession = async (
   req: AdminRequest,
   res: Response,
@@ -101,18 +113,6 @@ restaurantController.checkAuthSession = async (
   } catch (err) {
     console.log("Error, checkAuthSession", err);
     res.send(err);
-  }
-};
-
-restaurantController.logout = async (req: AdminRequest, res: Response) => {
-  try {
-    console.log("logout");
-    req.session.destroy(function () {
-      res.redirect("/admin");
-    });
-  } catch (err) {
-    console.log("Error, logout", err);
-    res.redirect("/admin");
   }
 };
 
