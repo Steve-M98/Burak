@@ -12,12 +12,14 @@ restaurantController.goHome = (req: Request, res: Response) => {
   try {
     console.log("goHome");
     res.render("home");
-    // respons turlari: send, end, json, render, redirect
+    // response turlari: => send | end | json | render | redirect |
   } catch (err) {
     console.log("Error, goHome:", err);
     res.redirect("/admin");
   }
 };
+
+/** ********************************************** */
 
 restaurantController.getSignup = (req: Request, res: Response) => {
   try {
@@ -29,6 +31,8 @@ restaurantController.getSignup = (req: Request, res: Response) => {
   }
 };
 
+/** ********************************************** */
+
 restaurantController.getLogin = (req: Request, res: Response) => {
   try {
     console.log("getLogin");
@@ -38,6 +42,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
     res.redirect("/admin");
   }
 };
+/** ********************************************** */
 
 restaurantController.processSignup = async (
   req: AdminRequest,
@@ -63,6 +68,8 @@ restaurantController.processSignup = async (
   }
 };
 
+/** ********************************************** */
+
 restaurantController.processLogin = async (
   req: AdminRequest,
   res: Response,
@@ -87,6 +94,8 @@ restaurantController.processLogin = async (
   }
 };
 
+/** ********************************************** */
+
 restaurantController.logout = async (req: AdminRequest, res: Response) => {
   try {
     console.log("logout");
@@ -98,6 +107,8 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
     res.redirect("/admin");
   }
 };
+
+/** ********************************************** */
 
 restaurantController.checkAuthSession = async (
   req: AdminRequest,
@@ -115,5 +126,7 @@ restaurantController.checkAuthSession = async (
     res.send(err);
   }
 };
+
+/** ********************************************** */
 
 export default restaurantController;
