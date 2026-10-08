@@ -144,10 +144,28 @@ TASK R
 "1 + 2" ko'rinishidagi stringni hisoblab number qaytarsin.
 
 Masalan: calculate("1 + 3") return 4. */
-
+/*
 function taskR(): Number {
   let a = "1";
   let b = "2";
   return Number(a) + Number(b);
 }
-console.log(taskR());
+console.log(taskR()); */
+
+/*   TASK S
+
+Array ichidagi tushib qolgan sonni topib qaytarsin.
+
+Masalan: missingNumber([3, 0, 1]) return 2  */
+
+function taskS(arr: number[]) {
+  for (let i = 1; i <= 5; i++) {
+    // bu yerda 1 dan5 gacha hamma raqamni qoyib keladi
+    if (!arr.includes(i)) {
+      // bu yerda includes(i) array ichida berilgan raqamlardan loop da kelmagan raqam,ni ushlab qoladi.
+      return i;
+    }
+  }
+}
+
+console.log(taskS([1, 2, 3, 5])); // 4
