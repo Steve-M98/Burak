@@ -14,10 +14,8 @@ class MemberService {
   /**  SPA  */
 
   public async signup(input: MemberInput): Promise<Member> {
-    console.log("before:", input.memberPassword);
     const salt = await bcrypt.genSalt();
     input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
-    console.log("after:", input.memberPassword);
 
     try {
       const result = await this.memberModel.create(input);
@@ -28,6 +26,8 @@ class MemberService {
       throw new Errors(HttpCode.BAD_REQUEST, Message.USED_NICK_PHONE);
     }
   }
+
+  /** ********************************************** */
 
   public async login(input: LoginInput): Promise<Member> {
     const member = await this.memberModel
@@ -68,6 +68,8 @@ class MemberService {
     }
   }
 
+  /** ********************************************** */
+
   public async processLogin(input: LoginInput): Promise<Member> {
     const member = await this.memberModel
       .findOne(
@@ -85,6 +87,17 @@ class MemberService {
       throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
 
     return await this.memberModel.findById(member._id).exec();
+  }
+
+  /** ********************************************** */
+
+  public async getUsers(): Promise<Member[]> {
+    const result = await this.memberModel
+      .find({ memberType: MemberType.USER })
+      .exec();
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+    return result;
   }
 }
 
