@@ -31,7 +31,7 @@ app.use(
     },
     store: store, // collection ichidagi nomi; collectionni nomi => "sessions"
     resave: true, // "true" bo'lsa oxirgi kirgan vaqtdan boshlab 3 soat amal qiladi, "false" bo'lsa birinchi kirgan vaqtdan boshlab 3 soat amal qiladi.
-    saveUninitialized: true,
+    saveUninitialized: false,
   }),
 );
 

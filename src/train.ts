@@ -1,4 +1,10 @@
-// VALIDATION: FRONTEND VALIDATION, BACKEND VALIDATION, DATABASE VALIDATION;
+// VALIDATION:
+
+// FRONTEND VALIDATION,
+// PIPE VALIDATION ( Serverga kirish frn bkn oralig'idagi ),
+// BACKEND VALIDATION,
+// DATABASE VALIDATION;
+
 // ENUM ==> Oldindan belgilangan QAT'IY Qiymatlar ketma ketligi  ( ENUMERATION )
 
 /* Project Standards:
@@ -15,6 +21,10 @@
 // Architectural pattern: MVC, Dependency Injection, MVP
 
 // Design pattern: Middleware, Decotar
+
+// COOKIE xususiyatlari
+// Request join, => har bir requstga yopishib oladi
+// Self destroy, =>  ma'lum vaqtdan keyin o'zini o'zi o'ldiradi
 
 /** ********************************************** */
 
@@ -152,12 +162,14 @@ function taskR(): Number {
 }
 console.log(taskR()); */
 
+/** ********************************************** */
+
 /*   TASK S
 
 Array ichidagi tushib qolgan sonni topib qaytarsin.
 
 Masalan: missingNumber([3, 0, 1]) return 2  */
-
+/*
 function taskS(arr: number[]) {
   for (let i = 1; i <= 5; i++) {
     // bu yerda 1 dan5 gacha hamma raqamni qoyib keladi
@@ -168,4 +180,52 @@ function taskS(arr: number[]) {
   }
 }
 
-console.log(taskS([1, 2, 3, 5])); // 4
+console.log(taskS([1, 2, 3, 5])); // 4. */
+
+/** ********************************************** */
+
+/*   TASK T
+
+Ikkita arrayni qabul qilib, ularni birlashtirib tartiblangan holda qaytarsin.
+
+Masalan: mergeSortedArrays([0, 3, 4], [4, 6]) return [0, 3, 4, 4, 6]  */
+
+function taskT(arr1: number[], arr2: number[]): number[] {
+  const result: number[] = []; // bu yerda yangi result nomli varible, bo'sh arr yaratdik 2 la arrayni birlashtirish uchun.
+  let m = 0;
+  let n = 0;
+
+  while (m < arr1.length && n < arr2.length) {
+    if (arr1[m] <= arr2[n]) {
+      result.push(arr1[m]); // bu yerda push methodi orqali oxiridan yangi elementlarni qo'hib kelyapmiz
+      m++;
+    } else {
+      result.push(arr2[n]);
+      n++;
+    }
+  }
+
+  while (m < arr1.length) {
+    result.push(arr1[m]); // bu yerda yana qaytadan array ichida qolib ketgan ele.ni push qilishni buyurdik.
+    m++;
+  }
+  while (n < arr2.length) {
+    result.push(arr2[n]); // bu yerda ham yana qaytadan array ichida qolib ketgan ele.ni push qilishni buyurdik.
+    m++;
+    n++;
+  }
+
+  return result;
+}
+
+console.log(taskT([0, 3, 4], [5, 6]));
+
+/** ********************************************** */
+
+/*  TASK T => @ korinishda yechilishi
+
+function taskT(arr1: number[], arr2: number[]): number[] {
+  return [...arr1, ...arr2].sort((a, b) => a - b);
+}
+
+console.log(taskT([5, 2, 9, 0], [7, 3, 6, 8])); */

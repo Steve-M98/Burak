@@ -57,6 +57,7 @@ restaurantController.processSignup = async (
     const newMember: MemberInput = req.body;
     newMember.memberImage = file?.path;
     newMember.memberType = MemberType.RESTAURANT;
+
     const result = await memberService.processSignup(newMember);
 
     req.session.member = result;
@@ -77,11 +78,11 @@ restaurantController.processSignup = async (
 
 restaurantController.processLogin = async (
   req: AdminRequest,
-  res: Response,
+  res: Response, //. savol fayl yuklash mantigini login jarayoniga ham qoshish kerakmasmi yoki signup bolgan odam avtomatik yuklashi mumkinmi?
 ) => {
   try {
     console.log("processlogin");
-    console.log("body:", req.body);
+    // console.log("body:", req.body);
     const input: LoginInput = req.body;
     const result = await memberService.processLogin(input);
 
