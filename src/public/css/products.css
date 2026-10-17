@@ -6,7 +6,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(-45deg, #110303bf, #e37813, #011c1aba, #968383);
+  background:
+    radial-gradient(
+      ellipse 65% 55% at 88% 8%,
+      rgba(255, 170, 60, 0.85),
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 55% 50% at 92% 95%,
+      rgba(255, 90, 120, 0.75),
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 60% 55% at 8% 12%,
+      rgba(90, 150, 255, 0.85),
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 55% 55% at 12% 92%,
+      rgba(165, 105, 245, 0.75),
+      transparent 65%
+    ),
+    linear-gradient(135deg, #1a2a78 0%, #2a2a8a 45%, #4a2a78 100%);
+  background-attachment: fixed;
 }
 
 .products-container a {
@@ -364,4 +386,10 @@ table th {
 
 .products-container .slider.round:before {
   border-radius: 50%;
+}
+
+.products-container input:not([type="file"]),
+.products-container select:focus .products-container textarea:focus {
+  background: #f2f3ee !important;
+  border: 2px solid #84cc16 !important;
 }

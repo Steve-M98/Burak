@@ -18,7 +18,7 @@
         <li
           class="nav-item"
           style="cursor: pointer"
-          onclick="return confirm('Do you want to logout?')"
+          onclick="return confirm('Do you want to logout?');"
         >
           <a class="nav-link" href="/admin/logout">Logout</a>
         </li>
@@ -65,7 +65,11 @@
             class="long-input"
             style="align-items: flex-end; margin-bottom: 25px"
           >
-            <button class="btn btn-primary" id="process-btn">
+            <button
+              class="btn btn-primary"
+              id="process-btn"
+              style="width: 220px; height: 48px"
+            >
               New Product
             </button>
           </div>
@@ -119,7 +123,14 @@
           <div class="half-input-frame">
             <div class="half-input">
               <label>Product Type</label>
-              <select class="product-collection" name="productCollection">
+              <select
+                class="product-collection"
+                name="productCollection"
+                style="
+                  background: #f2f3ee !important;
+                  border: 2px solid #84cc16 !important;
+                "
+              >
                 <option value="DISH" selected>Dish</option>
                 <option value="SALAD">Salad</option>
                 <option value="DESSERT">Dessert</option>
@@ -130,7 +141,14 @@
 
             <div class="half-input" id="product-collection">
               <label>Dish Volume</label>
-              <select class="product-size" name="productSize">
+              <select
+                class="product-size"
+                name="productSize"
+                style="
+                  background: #f2f3ee !important;
+                  border: 2px solid #84cc16 !important;
+                "
+              >
                 <option value="SMALL">Small</option>
                 <option value="NORMAL" selected>Normal</option>
                 <option value="LARGE">Large</option>
@@ -151,7 +169,14 @@
           </div>
           <div class="long-input">
             <label>Product Description</label>
-            <textarea name="productDesc" class="product-desc"></textarea>
+            <textarea
+              name="productDesc"
+              class="product-desc"
+              style="
+                background: #f2f3ee !important;
+                border: 2px solid #84cc16 !important;
+              "
+            ></textarea>
           </div>
 
           <div class="img-frame">
@@ -208,8 +233,19 @@
           </div>
 
           <div class="operation-buttons">
-            <button class="btn btn-danger" id="cancel-btn">Cancel</button>
-            <button type="submit" class="btn btn-primary" id="create-btn">
+            <button
+              class="btn btn-danger"
+              id="cancel-btn"
+              style="width: 180px; height: 45px"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="create-btn"
+              style="width: 180px; height: 45px"
+            >
               Create
             </button>
           </div>
