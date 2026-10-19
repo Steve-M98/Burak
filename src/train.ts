@@ -190,6 +190,7 @@ Ikkita arrayni qabul qilib, ularni birlashtirib tartiblangan holda qaytarsin.
 
 Masalan: mergeSortedArrays([0, 3, 4], [4, 6]) return [0, 3, 4, 4, 6]  */
 
+/*
 function taskT(arr1: number[], arr2: number[]): number[] {
   const result: number[] = []; // bu yerda yangi result nomli varible, bo'sh arr yaratdik 2 la arrayni birlashtirish uchun.
   let m = 0;
@@ -218,7 +219,7 @@ function taskT(arr1: number[], arr2: number[]): number[] {
   return result;
 }
 
-console.log(taskT([0, 3, 4], [5, 6]));
+console.log(taskT([0, 3, 4], [5, 6]));   */
 
 /** ********************************************** */
 
@@ -229,3 +230,27 @@ function taskT(arr1: number[], arr2: number[]): number[] {
 }
 
 console.log(taskT([5, 2, 9, 0], [7, 3, 6, 8])); */
+
+/** ********************************************** */
+
+/*.   TASK V
+
+Stringdagi har bir harf necha marta takrorlanganini object sifatida qaytarsin.
+
+Masalan: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}.  */
+
+// bu yerda  ( Record<string, number> ) ===> objectni ichidagi beriladigan kalit va qiymatlarni typi bo'ladi, Typescript uchun yozildi.
+function taskV(matn: string): Record<string, number> {
+  // Buni mazmuni objectga berilgan kalit ( key )  string bo'lsin qiymatlari( value) number bo'lsin.
+  const counts: Record<string, number> = {}; // bu yerda yangi object yaratildi typi yan o'sha holda yozildi. Bu bizga bo'sh sababi biz bergan kkalit sozni hisoblash uchun bo'sh bolishi kerak
+
+  for (const char of matn) {
+    // bu yerda yana yangi veribl ochdik => char;  matn ichidagi har bir belgini takrorla va char veriblga saqla deyildi
+    counts[char] = (counts[char] ?? 0) + 1; // bu yerda char ni qiymati nullish bo'lsa +1 qo'sh deyildi, ya'ni so'z takrorlanayotganda birinchi harf keldi uni qiymati bor nullish emas u holda +1 ni qo'sh dedik
+  } // nullish bo'lsa degani =====> undefined yoki null bo'lsa degani agar huddi shunday bo'lsa ?? ( nullish ) qoidasiga ko'ra ?? dan keyin kelgan qiymatni oladi qoidasi shunday.
+
+  return counts;
+}
+
+console.log(taskV("charxesso"));
+console.log(taskV("Barakalla"));
