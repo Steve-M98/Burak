@@ -23,8 +23,32 @@ $(function () {
     $(".dish-container").slideToggle(100);
     $("#process-btn").css("display", "flex");
   });
+
+  // bu yerda product ni statusini ya'ni PROCESS , DELETE, ga aslida doimiy PAUSE da bo'ladi
+  $(".new-product-status").on("change", async function (e) {
+    const id = e.target.id;
+    const productStatus = $(`#${id}.new-product-status`).val();
+    console.log("id:", id);
+    console.log("productStatus:", productStatus);
+
+    try {
+      const response = await axios.post(`/admin/product/${id}`, {
+        productStatus: productStatus,
+      });
+      console.log("response:", response);
+      const result = response.data;
+      if (result.data) {
+        console.log("Product updated!");
+        $(".new-product-status").blur();
+      } else alert("Product update failed!");
+    } catch (err) {
+      console.log(err);
+      alert("Product update failed!");
+    }
+  });
 });
 
+// bu yerda validate qilinyapti yangi maxsulot hosil qilyatganda qaysidir qism yozilmasa error berishi kerak hamma qismga ma'lumot yozilishi kerak
 function validateForm() {
   const productName = $(".product-name").val();
   const productPrice = $(".product-price").val();
