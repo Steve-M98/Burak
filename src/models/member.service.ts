@@ -38,11 +38,17 @@ class MemberService {
   public async login(input: LoginInput): Promise<Member> {
     const member = await this.memberModel
       .findOne(
-        { memberNick: input.memberNick, memberStatus: MemberStatus.ACTIVE }, // findOne ga 2 chi {..} qilib ichiga yozilgan narsa
-        { memberNick: 1, memberPassword: 1 }, //  <=== maxfiy ma'lumotni majburiy chaqirish usuli.
+        {
+          memberNick: input.memberNick,
+          memberStatus: { $ne: MemberStatus.DELETE }, // buni ma'nosi member DELETE Bo'lmagan bo'lsa ruxsat ber login qilishga
+        }, // findOne ga 2 chi {..} qilib ichiga yozilgan narsa
+        { memberNick: 1, memberPassword: 1, memberStatus: 1 }, //  <=== maxfiy ma'lumotni majburiy chaqirish usuli.
       )
       .exec();
     if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
+    else if (member.memberStatus === MemberStatus.BLOCK) {
+      throw new Errors(HttpCode.FORBIDDEN, Message.BLOCKED_USER);
+    }
 
     const isMatch = await bcrypt.compare(
       input.memberPassword,
