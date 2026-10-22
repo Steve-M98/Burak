@@ -223,7 +223,7 @@ console.log(taskT([0, 3, 4], [5, 6]));   */
 
 /** ********************************************** */
 
-/*  TASK T => @ korinishda yechilishi
+/*  TASK T => 2- korinishda yechilishi
 
 function taskT(arr1: number[], arr2: number[]): number[] {
   return [...arr1, ...arr2].sort((a, b) => a - b);
@@ -239,6 +239,7 @@ Stringdagi har bir harf necha marta takrorlanganini object sifatida qaytarsin.
 
 Masalan: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}.  */
 
+/*
 // bu yerda  ( Record<string, number> ) ===> objectni ichidagi beriladigan kalit va qiymatlarni typi bo'ladi, Typescript uchun yozildi.
 function taskV(matn: string): Record<string, number> {
   // Buni mazmuni objectga berilgan kalit ( key )  string bo'lsin qiymatlari( value) number bo'lsin.
@@ -254,3 +255,21 @@ function taskV(matn: string): Record<string, number> {
 
 console.log(taskV("charxesso"));
 console.log(taskV("Barakalla"));
+*/
+/**   TASK W
+
+Arrayni berilgan uzunlikda bo'laklarga ajratib qaytarsin.
+
+Masalan: chunkArray([1, 2, 3, 4, 5], 2) return [[1, 2], [3, 4], [5]] */
+
+function taskW(array: any, size: number): any {
+  const result = [];
+
+  for (let i = 0; i < array.length; i += size) {
+    result.push(array.slice(i, i + size));
+  }
+
+  return result;
+}
+
+console.log(taskW([15, 49, 77, 64, 93, 52], 2));
