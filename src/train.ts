@@ -262,6 +262,7 @@ Arrayni berilgan uzunlikda bo'laklarga ajratib qaytarsin.
 
 Masalan: chunkArray([1, 2, 3, 4, 5], 2) return [[1, 2], [3, 4], [5]] */
 
+/*
 function taskW(array: any, size: number): any {
   const result = [];
 
@@ -272,4 +273,30 @@ function taskW(array: any, size: number): any {
   return result;
 }
 
-console.log(taskW([15, 49, 77, 64, 93, 52], 2));
+console.log(taskW([15, 49, 77, 64, 93, 52], 2));     /*
+
+/** 
+       TASK X
+
+Object tarkibida (nested bo'lsa ham) berilgan kalit necha marta takrorlanganini sanang.
+
+Masalan: countOccurrences({model: "A", s: {model: "B"}}, "model") return 2
+ */
+
+function taskX(obj: any, key: string): number {
+  let count = 0;
+
+  for (const k in obj) {
+    if (k === key) {
+      count++;
+    }
+
+    if (typeof obj[k] === "object" && obj[k] !== null) {
+      count += taskX(obj[k], key);
+    }
+  }
+
+  return count;
+}
+
+console.log(taskX({ taom: "Palov", task: { taom: "Kabob" } }, "taom"));
