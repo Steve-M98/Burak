@@ -256,6 +256,9 @@ function taskV(matn: string): Record<string, number> {
 console.log(taskV("charxesso"));
 console.log(taskV("Barakalla"));
 */
+
+/** ********************************************** */
+
 /**   TASK W
 
 Arrayni berilgan uzunlikda bo'laklarga ajratib qaytarsin.
@@ -275,6 +278,8 @@ function taskW(array: any, size: number): any {
 
 console.log(taskW([15, 49, 77, 64, 93, 52], 2));     /*
 
+/** ********************************************** */
+
 /** 
        TASK X
 
@@ -283,6 +288,7 @@ Object tarkibida (nested bo'lsa ham) berilgan kalit necha marta takrorlanganini 
 Masalan: countOccurrences({model: "A", s: {model: "B"}}, "model") return 2
  */
 
+/** 
 function taskX(obj: any, key: string): number {
   let count = 0;
 
@@ -299,4 +305,21 @@ function taskX(obj: any, key: string): number {
   return count;
 }
 
-console.log(taskX({ taom: "Palov", task: { taom: "Kabob" } }, "taom"));
+console.log(taskX({ taom: "Palov", task: { taom: "Kabob" } }, "taom"));  */
+
+/** ********************************************** */
+
+/**
+TASK Y
+
+Ikkala arrayda ham ishtirok etgan bir xil qiymatlarni qaytarsin.
+
+Masalan: findIntersection([1, 2, 3], [3, 2, 0]) return [2, 3].  */
+
+function taskY(arr1: number[], arr2: number[]): number[] {
+  // bu yerda typsc u-n typlari yozildi.
+  return arr1.filter((num) => arr2.includes(num));
+} // bu yerrda 1 array ichidagi sonlarni filterlaydi 1 arrray ichida kelgan sonni 2 array ichida bor yo'qligini tekshiirib < true , false > qaytaradi
+// filter faqat true bo'lgan sonlarni yigib arrayga joylab consolga chiqaradi
+
+console.log(taskY([15, 6, 49, 18], [58, 6, 78, 36, 49, 15]));
