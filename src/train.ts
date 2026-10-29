@@ -316,10 +316,38 @@ Ikkala arrayda ham ishtirok etgan bir xil qiymatlarni qaytarsin.
 
 Masalan: findIntersection([1, 2, 3], [3, 2, 0]) return [2, 3].  */
 
+/** 
 function taskY(arr1: number[], arr2: number[]): number[] {
   // bu yerda typsc u-n typlari yozildi.
   return arr1.filter((num) => arr2.includes(num));
 } // bu yerrda 1 array ichidagi sonlarni filterlaydi 1 arrray ichida kelgan sonni 2 array ichida bor yo'qligini tekshiirib < true , false > qaytaradi
 // filter faqat true bo'lgan sonlarni yigib arrayga joylab consolga chiqaradi
 
-console.log(taskY([15, 6, 49, 18], [58, 6, 78, 36, 49, 15]));
+console.log(taskY([15, 6, 49, 18], [58, 6, 78, 36, 49, 15]));  */
+
+/** ********************************************** */
+
+/**
+     TASK Z
+
+          Array tarkibidagi juft sonlar yig'indisini hisoblab qaytarsin.
+
+          Masalan: sumEvens([1, 2, 3]) return 2
+ */
+
+function taskZ(arr: number[]): number {
+  // buyerda typlarini belgiladik
+  let raqam: number = 0; // yangi veribl yaratib boshlangich qiymati 0 ga tengladik
+
+  for (const num of arr) {
+    // har bir sonni num degan veribl ostida tekshirishni buyurdik
+    if (num % 2 === 0) {
+      // qaysi raqam 2 ga bo'lganda qoldiq 0 ga teng bo'lsa degan shart berildi
+      raqam += num; // o'sha 2 ga qoldiqsiz bo'lingan sonlarni birgalikda qo'shib berishini buyurdik
+    }
+  }
+
+  return raqam;
+}
+
+console.log(taskZ([5, 8, 9, 6, 3, 4, 7]));
