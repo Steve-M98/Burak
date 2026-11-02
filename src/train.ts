@@ -28,6 +28,13 @@
 
 /** ********************************************** */
 
+// JSON WEB TOKEN ==> TOKEN HOSIL QILISH UCHUN KERAK,
+// COOKIE-PARSER ==> TOKENNI BROWSERNI COOKIE GA SAQLASH UCHUN KERAK
+// EXPRESS SESSION ==> SESSION HOSIL QILISH UCHUN KERAK
+// Connect MongoDB SEESION ==> SESSION NI DATABASE BILAN ULASH UCHUN KERAK
+
+/** ********************************************** */
+
 /* 
 TASK L
 
