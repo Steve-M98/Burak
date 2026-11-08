@@ -35,6 +35,11 @@
 
 /** ********************************************** */
 
+// " query " => urlni ichida yashaydi request bilan birga keladi.
+//  uni kiritish < localhost:3000/member/all?name=Steve&aage=28&nation=uzbek > ? belgisi bilan boshlab yoziladi
+
+// "params" => url ni ichida yashaydi lekin uni kiritish uchun routerda ham url dan keyin : belgi qoyib nom kiritish kerak
+// < localhost:3003/product/all/snkjdnckdcds/978723872 >   roterda < product/all/:param nom/:param nom > shunda 2 ta param yozilgan boladi
 /* 
 TASK L
 
