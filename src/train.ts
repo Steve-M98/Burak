@@ -41,6 +41,20 @@
 // "params" => url ni ichida yashaydi lekin uni kiritish uchun routerda ham url dan keyin : belgi qoyib nom kiritish kerak
 // < localhost:3003/product/all/snkjdnckdcds/978723872 >   roterda < product/all/:param nom/:param nom > shunda 2 ta param yozilgan boladi
 /* 
+
+
+// $inc ==> increment qisqartmasi
+
+
+
+
+
+
+
+
+
+
+
 TASK L
 
 So'zlarni ketma-ketligini buzmasdan har bir so'zni alohida teskarisiga o'girib beradigan function tuzing.
