@@ -10,7 +10,6 @@ import {
 } from "../libs/types/order";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import { shapeIntoMongooseObjectId } from "../libs/config";
-import { MemberType } from "../libs/enums/member.enum";
 import MemberService from "./Member.service";
 import { OrderStatus } from "../libs/enums/order.enum";
 
@@ -88,19 +87,20 @@ class OrderService {
 
         {
           $lookup: {
-            from: "orderItems",
-            localField: "_id",
-            foreignField: "orderId",
-            as: "orderItems",
+            localField: "_id", // bu hozir turgan collection dan < _id > bilan izlash kerakligini bildiradi
+            from: "orderItems", // bu qaysi collectiondan izlashni bildiradi
+            foreignField: "orderId", // bu o'sha < from:orderItmes > ya'ni " orderItems " collectioni ichidan
+            // < orderId > dagi id raqam bilan < localField: _id > shu " _id " bilan solishtirish kerak
+            as: "orderItems", // bu bizga shu nom ostida hamma ma'lumot ni qaytar deyildi
           },
         },
 
         {
           $lookup: {
-            from: "products",
             localField: "orderItems.productId",
+            from: "products",
             foreignField: "_id",
-            as: "productData[]+poy67543r21`",
+            as: "productData",
           },
         },
       ])

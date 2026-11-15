@@ -8,12 +8,13 @@ class ViewService {
   constructor() {
     this.viewModel = ViewModel;
   }
-  //   oldin korganmi yoqmi tekshiradigan mantiq
+  //   oldin ko'rganmi yo'qmi tekshiradigan mantiq
   public async checkViewExistence(input: ViewInput): Promise<View> {
     return await this.viewModel
       .findOne({
-        memberId: input.memberId,
-        viewRefId: input.viewRefId,
+        // nega memberID va viewrefID bilan izlayapmiz
+        memberId: input.memberId, // agar memberID bo'lmasa osha maxsulotni 1 marta kimdir ko'rsa, ortidan boshqa odam kirib ko'rsa ham  view soni oshmay qoladi. sababi kim korganini saqlab qolmagan
+        viewRefId: input.viewRefId, // agar viewRefId ni yozmasa osha meberId dagi odam saytda biror maxsulotni ko'rsa view soni bitta oshadi lekin boshqa maxsulotni korsa oshhmaydi sababi qaysi maxsulotni korganini id sini saqlab qolmagan bo'ladi
       })
       .exec();
   }

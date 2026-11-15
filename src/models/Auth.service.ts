@@ -26,6 +26,9 @@ class AuthService {
       );
     });
   }
+
+  /** *************************************************** */
+
   public async checkAuth(token: string): Promise<Member> {
     const result: Member = (await jwt.verify(
       token,

@@ -107,7 +107,6 @@ class MemberService {
       .sort({ memberPoints: -1 }) // eng yuqori pointdan pastga qarab degani < 1 yoki +1 > bolsa eng past pointdan yuqoriga qarab sort qiladi
       .limit(4)
       .exec();
-    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
 
     return result;
   }

@@ -13,7 +13,7 @@ const productController: T = {};
 /** SPA */
 productController.getProducts = async (req: Request, res: Response) => {
   try {
-    console.log("getProducts");
+    // { page, limit, order } => distraction deyiladi
     const { page, limit, order, productCollection, search } = req.query;
     const inquiry: ProductInquiry = {
       order: String(order),
@@ -40,7 +40,7 @@ productController.getProducts = async (req: Request, res: Response) => {
 productController.getProduct = async (req: ExtendedRequest, res: Response) => {
   try {
     console.log("getProduct");
-    const { id } = req.params,
+    const { id } = req.params, // { id } => distraction deyiladi
       memberId = req.member?._id ?? null,
       result = await productService.getProduct(memberId, id);
 

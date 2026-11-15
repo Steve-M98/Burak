@@ -34,9 +34,10 @@ class ProductService {
     }
 
     const sort: T =
-      inquiry.order === "productPrice" // SSSSSAAAAVVVOOOLL
+      inquiry.order === "productPrice"
         ? { [inquiry.order]: 1 } // bu eng arzon narxdan balandiga qarab korsat
-        : { [inquiry.order]: -1 }; // createdAT ni qayerdan bilib olyapti boshqa narsa kelishi mumkinmi?
+        : { [inquiry.order]: -1 }; // bu yerda nega [] ichida yozilgan sababi bizda order -> string ko'rinishida keladi,
+    // lekin key lar doim obj. bo'lishi kerak [] bu osha stringni yechib beradi
 
     const result = await this.productModel
       .aggregate([
@@ -55,8 +56,8 @@ class ProductService {
   /** *************************************************** */
 
   public async getProduct(
-    memberId: ObjectId | null, // nega ObjectID qildik typini. SSSSSSAAAAAAVVVVVOOOOLLLLL
-    id: string, // nega bunga string berdik
+    memberId: ObjectId | null, //SSSSSSSAAAAA VVVVVOOOOLLLLl
+    id: string,
   ): Promise<Product> {
     const productId = shapeIntoMongooseObjectId(id);
 
