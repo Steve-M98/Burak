@@ -60,12 +60,12 @@ class OrderService {
     const promisedList = input.map(async (item: OrderItemInput) => {
       item.orderId = orderId;
       item.productId = shapeIntoMongooseObjectId(item.productId);
-      await this.orderItemModel.create(item);
+      await this.orderItemModel.create(item); // bu kod hozir kutish jaraonida
       return "INSERTED";
     });
 
     console.log("promisedList", promisedList);
-    const orderItemState = await Promise.all(promisedList);
+    const orderItemState = await Promise.all(promisedList); // bu yerda kutish tugaydi hammsi javobi niin qaytaradi
     console.log("orderItemState", orderItemState);
   }
 
@@ -87,7 +87,7 @@ class OrderService {
 
         {
           $lookup: {
-            localField: "_id", // bu hozir turgan collection dan < _id > bilan izlash kerakligini bildiradi
+            localField: "_id", // bu hozir turgan collection dan < _id > bilan izlash kerakligini bildiradi    // bu loocalFieldni this.orderModel dan bilsak boladi orders collectioni ekanligini
             from: "orderItems", // bu qaysi collectiondan izlashni bildiradi
             foreignField: "orderId", // bu o'sha < from:orderItmes > ya'ni " orderItems " collectioni ichidan
             // < orderId > dagi id raqam bilan < localField: _id > shu " _id " bilan solishtirish kerak

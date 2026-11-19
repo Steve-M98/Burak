@@ -1,4 +1,4 @@
-import { AUTH_TIMER } from "../libs/config";
+import { AUTH_TIMER, shapeIntoMongooseObjectId } from "../libs/config";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import { Member } from "../libs/types/member";
 import jwt from "jsonwebtoken";
@@ -34,6 +34,7 @@ class AuthService {
       token,
       this.secretToken,
     )) as Member;
+    result._id = shapeIntoMongooseObjectId(result._id);
     console.log(`---- [AUTH] memberNick: ${result.memberNick} ---`);
     return result;
   }
